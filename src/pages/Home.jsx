@@ -1,39 +1,19 @@
-import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import "../App.css";
 
 function Home() {
-  const navigate = useNavigate();
-
   return (
-    <div className="container">
-      <h1>BAIA Code Confidence Lab</h1>
+    <div className="home-page">
+      <Navbar />
 
-      <p className="subtitle">
-        Learn to code, build creative projects, and grow your confidence.
-      </p>
-
-      <div className="card">
-        <div className="card-inner">
-
-          <h2>What You'll Learn</h2>
-
-          <ul className="lesson-list">
-            <li>Scratch Basics</li>
-            <li>Loops and Events</li>
-            <li>Conditionals</li>
-            <li>Creative Coding</li>
-            <li>Building Your Own Project</li>
-          </ul>
-
-          <button
-            className="start-button"
-            onClick={() => navigate("/Week1")}
-          >
-            Start Week 1
-          </button>
-
-        </div>
-      </div>
+      <section className="home-hero">
+        <p className="eyebrow">Beautiful As I Am</p>
+        <h1>Learn Coding Through Creativity</h1>
+        <p className="hero-subtitle">
+          A 3-week coding experience where students explore Scratch, build games,
+          and grow confidence through technology and creativity.
+        </p>
+      </section>
     </div>
   );
 }

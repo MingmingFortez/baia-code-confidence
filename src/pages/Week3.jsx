@@ -1,20 +1,20 @@
-import "../App.css";
 import Navbar from "../components/Navbar";
+import "../App.css";
 
-function Week1() {
+function Week3() {
   return (
     <div className="week-page">
       <Navbar />
+
       <section className="hero-section">
-        <p className="eyebrow">Week 1</p>
-        <h1>Welcome to Coding</h1>
+        <p className="eyebrow">Week 3</p>
+        <h1>Build your own game</h1>
         <p className="hero-subtitle">
-          I can understand basic coding concepts and explore Scratch.
+          I can design my own game.
         </p>
-        
       </section>
     </div>
   );
 }
 
-export default Week1;
+export default Week3;
