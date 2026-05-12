@@ -10,7 +10,7 @@ function Week2() {
         <p className="eyebrow">Week 2</p>
         <h1>Build a Ping Pong Game</h1>
         <p className="hero-subtitle">
-          I can apply coding concepts to build a ping pong game.
+          Learning Goal: I can apply coding concepts to build a ping pong game.
         </p>
       </section>
     </div>

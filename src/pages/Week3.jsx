@@ -10,7 +10,7 @@ function Week3() {
         <p className="eyebrow">Week 3</p>
         <h1>Build your own game</h1>
         <p className="hero-subtitle">
-          I can design my own game.
+          Learning Goal: I can design my own game.
         </p>
       </section>
     </div>
