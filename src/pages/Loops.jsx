@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import "../App.css";
 import { useState } from "react";
+import ConceptPager from "../components/ConceptPager";
 
 const loopExamples = [
   {
@@ -102,10 +103,29 @@ const loopPracticeItems = [
 
 const loopBuckets = ["For Loop", "While Loop", "Forever Loop"];
 
+const miniQuizQuestions = [
+  {
+    question: "Which loop repeats a set number of times?",
+    choices: ["For Loop", "While Loop", "Forever Loop"],
+    answer: "For Loop",
+  },
+  {
+    question: "Which Scratch block keeps running until the project stops?",
+    choices: ["repeat 10", "repeat until", "forever"],
+    answer: "forever",
+  },
+  {
+    question: "Which loop is best for moving until a sprite touches the edge?",
+    choices: ["For Loop", "While Loop", "Forever Loop"],
+    answer: "While Loop",
+  },
+];
+
 function Loops() {
   const [currentExample, setCurrentExample] = useState(0);
   const [matchedLoops, setMatchedLoops] = useState({});
   const [selectedPracticeItem, setSelectedPracticeItem] = useState("");
+  const [quizAnswers, setQuizAnswers] = useState({});
 
   const goToPrevious = () => {
     setCurrentExample((currentExample - 1 + loopExamples.length) % loopExamples.length);
@@ -168,6 +188,10 @@ function Loops() {
   };
 
   const unmatchedPracticeItems = loopPracticeItems.filter((item) => !matchedLoops[item.id]);
+
+  const quizScore = miniQuizQuestions.reduce((total, question, index) => {
+    return quizAnswers[index] === question.answer ? total + 1 : total;
+  }, 0);
 
   return (
     <div className="week-page">
@@ -421,22 +445,94 @@ function Loops() {
         </div>
       </section>
 
+      <section className="lesson-section mini-quiz-section">
+        <p className="eyebrow dark-eyebrow">Mini Quiz</p>
+        <h2>Check Your Loop Knowledge</h2>
+
+        <p>
+          Choose the best answer for each question.
+        </p>
+
+        <div className="mini-quiz-score">
+          Quiz Score: {quizScore} / {miniQuizQuestions.length}
+        </div>
+
+        <div className="mini-quiz-list">
+          {miniQuizQuestions.map((quizQuestion, questionIndex) => {
+            const selectedAnswer = quizAnswers[questionIndex];
+
+            return (
+              <article className="mini-quiz-card" key={quizQuestion.question}>
+                <h3>{quizQuestion.question}</h3>
+
+                <div className="mini-quiz-choices">
+                  {quizQuestion.choices.map((choice) => {
+                    const isSelected = selectedAnswer === choice;
+                    const isCorrectChoice = quizQuestion.answer === choice;
+                    const showCorrect = selectedAnswer && isCorrectChoice;
+                    const showWrong = isSelected && !isCorrectChoice;
+
+                    return (
+                      <button
+                        className={`mini-quiz-choice ${isSelected ? "selected" : ""} ${
+                          showCorrect ? "correct" : ""
+                        } ${showWrong ? "wrong" : ""}`}
+                        type="button"
+                        key={choice}
+                        onClick={() =>
+                          setQuizAnswers({
+                            ...quizAnswers,
+                            [questionIndex]: choice,
+                          })
+                        }
+                      >
+                        {choice}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {selectedAnswer && (
+                  <p
+                    className={`mini-quiz-feedback ${
+                      selectedAnswer === quizQuestion.answer ? "correct" : "wrong"
+                    }`}
+                  >
+                    {selectedAnswer === quizQuestion.answer
+                      ? "Correct!"
+                      : `Not quite. The answer is ${quizQuestion.answer}.`}
+                  </p>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
       <section className="lesson-section loop-summary-section">
         <p className="eyebrow dark-eyebrow">Summary</p>
         <h2>Loops Help Programs Repeat</h2>
 
+        <p>
+          Loops save time because they let a program repeat actions without
+          writing the same instructions again and again.
+        </p>
+
         <div className="summary-grid">
           <div className="summary-card">
+            <span>1</span>
             <h3>For Loop</h3>
             <p>Use it when you know exactly how many times to repeat.</p>
           </div>
 
           <div className="summary-card">
+            <span>2</span>
             <h3>While Loop</h3>
             <p>Use it when something should repeat until a condition changes.</p>
           </div>
 
           <div className="summary-card">
+            <span>3</span>
             <h3>Forever Loop</h3>
             <p>Use it when something should keep going while the project runs.</p>
           </div>
@@ -447,6 +543,11 @@ function Loops() {
           probably help.
         </p>
       </section>
+
+      <ConceptPager
+        previous={{ label: "Events", path: "/events" }}
+        next={{ label: "Conditionals", path: "/conditionals" }}
+      />
     </div>
   );
 }
