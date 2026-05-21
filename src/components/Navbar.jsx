@@ -4,7 +4,10 @@ import "../App.css";
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="logo">BAIA Code Confidence Lab</div>
+      <Link className="logo" to="/" aria-label="BAIA Code Confidence Lab home">
+        <span className="logo-mark">BAIA</span>
+        <span className="logo-text">Code Confidence Lab</span>
+      </Link>
 
       <div className="nav-links">
         <Link to="/">Home</Link>
