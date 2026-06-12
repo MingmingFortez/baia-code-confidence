@@ -5,7 +5,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <Link className="logo" to="/" aria-label="BAIA Code Confidence Lab home">
-        <span className="logo-mark">BAIA</span>
+        <span className="logo-mark">
+          <span>B</span><span>A</span><span>I</span><span>A</span>
+        </span>
         <span className="logo-text">Code Confidence Lab</span>
       </Link>
 
