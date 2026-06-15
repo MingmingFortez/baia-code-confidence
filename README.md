@@ -1,16 +1,28 @@
-# React + Vite
+# BAIA Code Confidence Lab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Version 1.0**
 
-Currently, two official plugins are available:
+A curriculum web app built for BAIA (Bay Area Innovation Academy), a nonprofit dedicated to helping students learn coding through Scratch.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
 
-## React Compiler
+Code Confidence Lab is a guided learning resource for students working through BAIA's coding curriculum. It covers three weeks of instruction — from Scratch basics to building a full project — with interactive concept pages, carousels, quizzes, and step-by-step project walkthroughs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Curriculum Overview
 
-## Expanding the ESLint configuration
+- **Week 1** — Scratch Basics: sprites, events, the editor, and core coding concepts (loops, conditionals, variables, debugging)
+- **Week 2** — Project Exploration: algorithm design and building a Ping Pong game in Scratch
+- **Week 3** — Student Projects: planning, coding, debugging, and presenting an original Scratch project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React + Vite
+- React Router
+- Plain CSS
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
